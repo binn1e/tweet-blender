@@ -58,6 +58,7 @@ optional arguments:
 notes:
 ------
 
-- Please feel free to edit the **common_words.txt** file or **common_domains.txt** file as you wish in order to obtain more accurate personal and funny results.
+- Please feel free to edit the **common_words.txt** file or **common_domains.txt** file as you wish in order to obtain more accurate personal and funny results.  
+- **common_words.txt** contains around 1000 french words so you may want to delete them if you tweet only in english, so the script can be quicker.  
 
 Dependencies : none.
