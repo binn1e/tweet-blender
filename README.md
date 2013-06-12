@@ -14,8 +14,7 @@ usage :
 Runs the script to reports and print stats stdout.  
 
 <code>$ python tweet_blender.py -iany pattern [pattern ...]</code>  
-Exports tweets containing pattern or pattern n.  
-Patterns maybe a word, "an expression" or "a regexp?". 
+Exports tweets containing pattern or pattern n. Patterns maybe a word, "an expression" or "a regexp?". 
 
 <code>$ python tweet_blender.py -iall pattern [pattern ...]</code>  
 Exports tweets containing pattern and pattern n.  
