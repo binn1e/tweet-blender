@@ -8,10 +8,16 @@ A Python script that :
 
 usage :
 -------
-- As soon as you get it from twitter.com, just unzip your twitter archive on your hard drive and save the **common_words.txt_ file**, **common_domains.txt** file, and **tweet_blender.py** script at the root of the archive folder to run it.  
+As soon as you get it from twitter.com, just unzip your twitter archive on your hard drive and save the **common_words.txt_ file**, **common_domains.txt** file, and **tweet_blender.py** script at the root of the archive folder to run it.  
+
+- Stats feature : 
 
 <code>$ python tweet_blender.py</code>  
 Runs the script to reports and print stats stdout.  
+
+- Sort and export feature : 
+
+All of the commands listed below will export selected tweets to the **sorted.csv** file.
 
 <code>$ python tweet_blender.py -aany pattern [pattern ...]</code>  
 Adds to selection tweets containing pattern or pattern n. Patterns maybe a word, "an expression" or "a regexp?". 
@@ -29,10 +35,10 @@ Both <code>[-aany]</code> or <code>[-aall]</code> inculsion options can be combi
 For example :  
 
 <code>$ python tweet_blender.py -aany pizza "video games" -eall programming coffee</code>  
-Exports tweets that contain 'pizza' or 'video games' but don't contain both 'programming' and 'coffee'.  
+Adds to selection tweets that contain 'pizza' or 'video games' and remove from selection tweets that contain both 'programming' and 'coffee'.  
 
 <code>$ python tweet_blender.py -aall @binnie 'cof+e+' -eany pizza donut cookie</code>  
-Exports tweets that contain '@binnie' and match 'cof+e+ but don't contain 'pizza' or 'donut' or 'cookie'.  
+Adds to selection tweets that contain '@binnie' and match 'cof+e+' and remove from selection tweets that contain 'pizza' or 'donut' or 'cookie'.  
 
 To make your query case insensitive, add [-i] option.
 
