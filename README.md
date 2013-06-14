@@ -26,7 +26,7 @@ The stats feature displays many tops 5 which look like this (most common uncommo
 
 If you want to resize tops, please use <code>-t</code> option like this :  
 
-<code>$ python tweet_blender.py -t 42</code> - whenever possible, this will display in order your 42 fav smileys, internet domains, etc...
+<code>$ python tweet_blender.py -t 42</code> - whenever possible, this displays your 42 most tweeted smileys, internet domains, etc...
 
 FYI : data used in previous example is courtesy of my boyfriend, and yes, in case you're wondering : I am very proud.  
 
@@ -40,19 +40,19 @@ Adds to selection tweets containing pattern or pattern n. Patterns maybe a word,
 <code>$ python tweet_blender.py -aall pattern [pattern ...]</code>  
 Adds to selection tweets containing pattern and pattern n.  
 
-<code>$ python tweet_blender.py -eany pattern [pattern ...]</code>  
+<code>$ python tweet_blender.py -rany pattern [pattern ...]</code>  
 Remove from selection tweets containing pattern or pattern n.  
 
-<code>$ python tweet_blender.py -eall pattern [pattern ...]</code>  
+<code>$ python tweet_blender.py -rall pattern [pattern ...]</code>  
 Remove from selection tweets containing pattern and pattern n.  
 
 Both <code>[-aany]</code> or <code>[-aall]</code> inculsion options can be combined with <code>[-rany]</code> or <code>[-rall]</code> exclusion options.  
 For example :  
 
-<code>$ python tweet_blender.py -aany pizza "video games" -eall programming coffee</code>  
+<code>$ python tweet_blender.py -aany pizza "video games" -rall programming coffee</code>  
 Adds to selection tweets that contain 'pizza' or 'video games' and remove from selection tweets that contain both 'programming' and 'coffee'.  
 
-<code>$ python tweet_blender.py -aall @binnie 'cof+e+' -eany pizza donut cookie</code>  
+<code>$ python tweet_blender.py -aall @binnie 'cof+e+' -rany pizza donut cookie</code>  
 Adds to selection tweets that contain '@binnie' and match 'cof+e+' and remove from selection tweets that contain 'pizza' or 'donut' or 'cookie'.  
 
 To make your query case insensitive, add [-i] option.  
