@@ -22,7 +22,6 @@ facebook.com
 fb.me
 dailymotion.com
 dai.ly
-wikipedia.org
 vimeo.com
 soundcloud.com
 spotify.com
