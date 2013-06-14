@@ -13,47 +13,54 @@ usage :
 <code>$ python tweet_blender.py</code>  
 Runs the script to reports and print stats stdout.  
 
-<code>$ python tweet_blender.py -iany pattern [pattern ...]</code>  
-Exports tweets containing pattern or pattern n. Patterns maybe a word, "an expression" or "a regexp?". 
+<code>$ python tweet_blender.py -aany pattern [pattern ...]</code>  
+Adds to selection tweets containing pattern or pattern n. Patterns maybe a word, "an expression" or "a regexp?". 
 
-<code>$ python tweet_blender.py -iall pattern [pattern ...]</code>  
-Exports tweets containing pattern and pattern n.  
+<code>$ python tweet_blender.py -aall pattern [pattern ...]</code>  
+Adds to selection tweets containing pattern and pattern n.  
 
 <code>$ python tweet_blender.py -eany pattern [pattern ...]</code>  
-Exports tweets not containing pattern or pattern n.  
+Remove from selection tweets containing pattern or pattern n.  
 
 <code>$ python tweet_blender.py -eall pattern [pattern ...]</code>  
-Exports tweets not containing pattern and pattern n.  
+Remove from selection tweets containing pattern and pattern n.  
 
-Both <code>[-iany]</code> or <code>[-iall]</code> inculsion options can be combined with <code>[-eany]</code> or <code>[-eall]</code> exclusion options.  
+Both <code>[-aany]</code> or <code>[-aall]</code> inculsion options can be combined with <code>[-rany]</code> or <code>[-rall]</code> exclusion options.  
 For example :  
 
-<code>$ python tweet_blender.py -iany pizza "video games" -eall programming coffee</code>  
+<code>$ python tweet_blender.py -aany pizza "video games" -eall programming coffee</code>  
 Exports tweets that contain 'pizza' or 'video games' but don't contain both 'programming' and 'coffee'.  
 
-<code>$ python tweet_blender.py -iall @binnie 'coffee' -eany pizza donut cookie</code>  
-Exports tweets that contain '@binnie' and 'coffee' but don't contain 'pizza' or 'donut' or 'cookie'.  
+<code>$ python tweet_blender.py -aall @binnie 'cof+e+' -eany pizza donut cookie</code>  
+Exports tweets that contain '@binnie' and match 'cof+e+ but don't contain 'pizza' or 'donut' or 'cookie'.  
+
+To make your query case insensitive, add [-i] option.
 
 help:
 -----
 
 <pre><code>$ python tweet_blender.py -h   
-usage: tweet_blender [-h] [-iany pattern [pattern ...] | -iall pattern  
-                     [pattern ...]] [-eany pattern [pattern ...] | -eall      
-                     pattern [pattern ...]]
-                     
-Process some tweets. 
+usage: tweet_blender [-h] [-aany pattern [pattern ...] | -aall pattern
+                     [pattern ...]] [-rany pattern [pattern ...] | -rall
+                     pattern [pattern ...]] [-i]
 
-optional arguments:      
-  -h, --help            show this help message and exit  
-  -iany pattern [pattern ...]  
-                        Each exported tweet will contain any listed expressions.  
-  -iall pattern [pattern ...]  
-                        Each exported tweet will contain all listed expressions.  
-  -eany pattern [pattern ...]  
-                        Each exported tweet won't contain any listed expressions.  
-  -eall pattern [pattern ...]  
-                        Each exported tweet won't contain all listed expressions.  
+Process some tweets.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -aany pattern [pattern ...]
+                        Adds to selection each tweet containing any of the
+                        listed expressions.
+  -aall pattern [pattern ...]
+                        Adds to selection each tweet containing all of the
+                        listed expressions.
+  -rany pattern [pattern ...]
+                        Remove from selection each tweet containing any of the
+                        listed expressions.
+  -rall pattern [pattern ...]
+                        Remove from selection each tweet containing all of the
+                        listed expressions.
+  -i                    Make command case insensitive.
 </code></pre>
 notes:
 ------
