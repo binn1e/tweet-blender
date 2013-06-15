@@ -5,7 +5,7 @@ A Python script that :
 1. Reports bascis and funny stats about your Twitter usage  
 2. Allows you to sort and export your tweets using advanced content filtering
 
-#usage :
+##usage :
 
 As soon as you get it from twitter.com, just unzip your twitter archive on your hard drive and save the **common_words.txt_ file**, **common_domains.txt** file, and **tweet_blender.py** script at the root of the archive folder to run it.  
 
