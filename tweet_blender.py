@@ -292,6 +292,7 @@ def statsDisplay(volume_intro, tweets, total_intro = '', total = 0, displayTweet
 			day = int(ts[8:10])
 			if day > 3: qual = "th"
 			elif day == 1: qual = "st"
+			elif day == 2: qual = "nd"
 			else: qual = "rd"
 			date = datetime(int(ts[0:4]), int(ts[5:7]), day, int(ts[11:13]), int(ts[14:16]), int(ts[17:19]))
 			date = date.strftime("%a %-d" + qual + " %b %Y, %H:%M").lower()
