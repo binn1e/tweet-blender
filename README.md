@@ -2,7 +2,7 @@
 
 A Python script that : 
 
-1. Reports bascis and funny stats about your Twitter usage  
+1. Reports basics and funny stats about your Twitter usage  
 2. Allows you to sort and export your tweets using advanced content filtering
 
 ##usage :

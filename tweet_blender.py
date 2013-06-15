@@ -126,7 +126,7 @@ def searchTweets(tweets, patterns = [], ic = False, reverse = False):
 		if reverse and not match: matchingTweets.append(tweet)
 	return matchingTweets
 
-# fetch a random, iedally midlengthy tweet
+# fetch a random, ideally midlengthy tweet
 def pickUpTweet(tweets):
 	if len(tweets) == 1: return tweets[0]
 	else: 
