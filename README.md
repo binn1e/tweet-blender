@@ -14,7 +14,7 @@ As soon as you get it from twitter.com, just unzip your twitter archive on your 
 <code>$ python tweet_blender.py</code>  
 Runs the script to reports and print stats stdout.  
 
-The stats feature displays many tops 5 which look like this (most common uncommon words tweeted) :  
+The stats feature displays many tops 5 which look like this (example below lists most common uncommon words tweeted) :  
 <pre>
 × stop repeating yourself :
 — 1.  fucking
