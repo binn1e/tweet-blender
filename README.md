@@ -55,7 +55,7 @@ Adds to selection tweets that contain 'pizza' or 'video games' and remove from s
 <code>$ python tweet_blender.py -aall @binnie 'cof+e+' -rany pizza donut cookie</code>  
 Adds to selection tweets that contain '@binnie' and match 'cof+e+' and remove from selection tweets that contain 'pizza' or 'donut' or 'cookie'.  
 
-To make your query case insensitive, add [-i] option.  
+To make your query case insensitive, add <code>[-i]</code> option   
 
 ## help:
 
@@ -83,7 +83,7 @@ optional arguments:
   -i                    Make command case insensitive.
   -t size               Define tops size.
 </code></pre>
-### notes:
+## notes:
 
 - Please feel free to edit the **common_words.txt** file or **common_domains.txt** file as you wish in order to obtain more accurate personal and funny results.  
 - **common_words.txt** contains around 1000 french words so you may want to delete them if you tweet only in english, so the script can run quicker.  
