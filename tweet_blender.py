@@ -38,6 +38,7 @@ aww = "aww+"
 url = "(https?://([-\w\.]+)+(:\d+)?(/([\w/_\.]*(\?\S+)?)?)?)"
 heart = "&lt;3"
 strip = '.,;:()!?"”'
+source = '(<.*>)(.*)(<.*)>'
 
 # tweet length segmentation (i splitted 140 in 3 parts of about 46 characters.)
 shortRange 	= [0, 46]
@@ -172,6 +173,21 @@ def sortDomains(tweets):
 				domainCount[domain] = 1
 	domains = sorted(domainCount, key=domainCount.get, reverse = True)	
 	return domains
+
+def sortSources(tweets):
+	sourceCount = {}
+	for tweet in tweets:
+		sourceName = re.match(source, getSource(tweet))
+		if sourceName != None:
+			sourceName = sourceName.group(2)
+		else: sourceName = 'Not data available'
+		if sourceName in sourceCount:
+			sourceCount[sourceName] += 1
+		else:
+			sourceCount[sourceName] = 1
+	sources = sorted(sourceCount, key=sourceCount.get, reverse = True)	
+	return sources
+
 
 def sortEntities(tweets, patterns = [], strip = '', exclude = [], lc = False, ic = False):
 	entityCount = {}
@@ -366,6 +382,7 @@ def sortTweets(tweets):
 	sortedTweets.append(["sorted_smileys",  sortEntities(rawTweets, 
 			    [happySmiley, sadSmiley, kissSmiley, naughtySmiley, happyJapanese, sadJapanese])])
 	sortedTweets.append(["sorted_hashtags", sortEntities(getData(sortedTweets, "hashtag_tweets"), [hashtag], strip, ic = True)])
+	sortedTweets.append(["sorted_sources", sortSources(rawTweets)])
 	sortedTweets.append(["amused_replies", searchTweets(amusedTweets, ["^"+username])])
 	sortedTweets.append(["sorted_entertainers", sortEntities(getData(sortedTweets, "amused_replies"), [username], strip)])
 	sortedTweets.append(["bibliometrics", biblioMetrics(allOutputButRT, getData(sortedTweets, "commented_rt_tweets"))])
@@ -448,6 +465,8 @@ def displayStats(data, cut):
 	topDisplay(topCut(getData(data, "sorted_hashtags"), cut))
 	print '\n\t× devoted entertainers :'
 	topDisplay(topCut(getData(data, "sorted_entertainers"), cut))
+	print '\n\t× software spots :'
+	topDisplay(topCut(getData(data, "sorted_sources"), cut))
 	print '\t'
 	return
 
