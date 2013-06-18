@@ -188,7 +188,6 @@ def sortSources(tweets):
 	sources = sorted(sourceCount, key=sourceCount.get, reverse = True)	
 	return sources
 
-
 def sortEntities(tweets, patterns = [], strip = '', exclude = [], lc = False, ic = False):
 	entityCount = {}
 	for tweet in tweets:
