@@ -46,6 +46,9 @@ midRange 	= [47, 94]
 longRange 	= [95, 139]
 maxRange 	= [140, 140]
 
+# display
+lineLength = 94
+
 with open("common_words.txt", "r") as ew:
 	excluded_words = [word.lower().rstrip() for word in ew]
 
@@ -64,27 +67,49 @@ def count(tweets):
 	return len(tweets)
 
 def getTimestamp(tweet):
-	return tweet[5][0:19]
+	return tweet[3][0:19]
+
+def getDay(ts):
+	return int(ts[8:10])
+
+def getDayQual(day):
+	if day > 3: return "th"
+	elif day == 1: return "st"
+	elif day == 2: return "nd"
+	else: return "rd"
+
+def getMonth(ts):
+	return int(ts[5:7])	
+
+def getYear(ts):
+	return int(ts[0:4])	
+
+def getHour(ts):
+	return int(ts[11:13])
+
+def getMinutes(ts):
+	return int(ts[14:16])
+
+def getSeconds(ts):
+	return int(ts[17:19])
 
 def getSource(tweet):
-	return tweet[6]
+	return tweet[4]
 
 def getTweet(tweet):
-	return tweet[7]
+	return tweet[5]
 
 def getUrl(tweet):
-	if len(tweet) > 8 :
-		return tweet[8]
-	else: return '' 
+		return tweet[9]
 
-def getDomain(url):  
-	parts = re.split("\/", url)
-	match = re.match("([\w\-]+\.)*([\w\-]+\.\w{2,6}$)", parts[2]) 
-	if match != None:
-		if re.search("\.uk", parts[2]): 
-			match = re.match("([\w?\-?]+\.)*([\w?\-?]+\.[\w?\-?]+\.\w{2,6}$)", parts[2])
-		return match.group(2)
-	else: return ''
+def getDomain(url):
+	if url != '':
+		parts = re.split("\/", url)
+		match = re.match("([\w\-]+\.)*([\w\-]+\.\w{2,6}$)", parts[2]) 
+		if match != None:
+			if re.search("\.uk", parts[2]): 
+				match = re.match("([\w?\-?]+\.)*([\w?\-?]+\.[\w?\-?]+\.\w{2,6}$)", parts[2])
+			return match.group(2)
 
 def getData(data, key):	
 	for line in data:
@@ -171,7 +196,7 @@ def sortDomains(tweets):
 				domainCount[domain] += 1
 			else:
 				domainCount[domain] = 1
-	domains = sorted(domainCount, key=domainCount.get, reverse = True)	
+		domains = sorted(domainCount, key=domainCount.get, reverse = True)	
 	return domains
 
 def sortSources(tweets):
@@ -180,7 +205,7 @@ def sortSources(tweets):
 		sourceName = re.match(source, getSource(tweet))
 		if sourceName != None:
 			sourceName = sourceName.group(2)
-		else: sourceName = 'Not data available'
+		else: sourceName = 'Not specified'
 		if sourceName in sourceCount:
 			sourceCount[sourceName] += 1
 		else:
@@ -304,21 +329,16 @@ def statsDisplay(volume_intro, tweets, total_intro = '', total = 0, displayTweet
 			tweet = pickUpTweet(tweets)
 			text = getTweet(tweet)	
 			ts = getTimestamp(tweet)
-			day = int(ts[8:10])
-			if day > 3: qual = "th"
-			elif day == 1: qual = "st"
-			elif day == 2: qual = "nd"
-			else: qual = "rd"
-			date = datetime(int(ts[0:4]), int(ts[5:7]), day, int(ts[11:13]), int(ts[14:16]), int(ts[17:19]))
-			date = date.strftime("%a %-d" + qual + " %b %Y, %H:%M").lower()
+			date = datetime(getYear(ts), getMonth(ts), getDay(ts), getHour(ts), getMinutes(ts), getSeconds(ts))
+			date = date.strftime("%a %-d" + getDayQual(getDay(ts)) + " %b %Y, %H:%M").lower()
 			if sub: 
 				text = re.sub('&gt;', '>', text)
 				text = re.sub('&lt;', '<', text)
 			if total: 
-				if len(text) > 94: print '\t× %s :\n\t— %s, %.2f%% of %s\n\t> [%s]\n\t> %s\n' % (volume_intro, volume, prop, total_intro, date, text)
+				if len(text) > lineLength: print '\t× %s :\n\t— %s, %.2f%% of %s\n\t> [%s]\n\t> %s\n' % (volume_intro, volume, prop, total_intro, date, text)
 				else: print '\t× %s :\n\t— %s, %.2f%% of %s\n\t> [%s] %s\n' % (volume_intro, volume, prop, total_intro, date, text) 
 			else: 
-				if len(text) > 94: print '\t× %s :\n\t— %s\n\t> [%s]\n\t> %s\n' % (volume_intro, volume, date, text)
+				if len(text) > lineLength: print '\t× %s :\n\t— %s\n\t> [%s]\n\t> %s\n' % (volume_intro, volume, date, text)
 				else : print '\t× %s :\n\t— %s\n\t> [%s] %s\n' % (volume_intro, volume, date, text)
 		else:
 			if total: print '\t× %s :\n\t— %s, %.2f%% of %s\n' % (volume_intro, volume, prop, total_intro)
