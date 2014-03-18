@@ -11,10 +11,9 @@
 ~
 """
 
-import re, csv 
-
+import re, csv
+from datetime import datetime, timedelta
 from random import randint
-from datetime import datetime
 from argparse import ArgumentParser
 
 csv_path = 'tweets.csv'
@@ -66,32 +65,8 @@ def loadTweets(path):
 def count(tweets):	
 	return len(tweets)
 
-def getTimestamp(tweet):
-	return tweet[3][0:19]
-
-def getDay(ts):
-	return int(ts[8:10])
-
-def getDayQual(day):
-	if day > 3: return "th"
-	elif day == 1: return "st"
-	elif day == 2: return "nd"
-	else: return "rd"
-
-def getMonth(ts):
-	return int(ts[5:7])	
-
-def getYear(ts):
-	return int(ts[0:4])	
-
-def getHour(ts):
-	return int(ts[11:13])
-
-def getMinutes(ts):
-	return int(ts[14:16])
-
-def getSeconds(ts):
-	return int(ts[17:19])
+def getDate(tweet):
+	return datetime.strptime(tweet[3], "%Y-%m-%d %H:%M:%S +0000")
 
 def getSource(tweet):
 	return tweet[4]
@@ -328,9 +303,7 @@ def statsDisplay(volume_intro, tweets, total_intro = '', total = 0, displayTweet
 		if displayTweet:
 			tweet = pickUpTweet(tweets)
 			text = getTweet(tweet)	
-			ts = getTimestamp(tweet)
-			date = datetime(getYear(ts), getMonth(ts), getDay(ts), getHour(ts), getMinutes(ts), getSeconds(ts))
-			date = date.strftime("%a %-d" + getDayQual(getDay(ts)) + " %b %Y, %H:%M").lower()
+			date = str(getDate(tweet).strftime('%A %d %B %Y')).lower()
 			if sub: 
 				text = re.sub('&gt;', '>', text)
 				text = re.sub('&lt;', '<', text)
@@ -540,13 +513,24 @@ def removeTweetsAll(tweets, patterns = [], ic = False):
 		tweets.remove(deleted)
 	return tweets
 
+def dateSelect(tweets, date, mode):
+	output = []
+	date = datetime.strptime(date, '%d%m%Y')
+	for tweet in tweets: 
+		tweetDate = getDate(tweet)
+		if mode == "start":
+			if tweetDate >= date: output.append(tweet)
+		else: 
+			if tweetDate <= date+timedelta(days=1): output.append(tweet)
+	return output
+
 def writeTweets(tweets):
  	if len(tweets) > 0:
 		with open('sorted.csv', 'wt') as tweets_csv_file:
 			tweetWriter = csv.writer(tweets_csv_file, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_ALL)
 			tweetWriter.writerow(['tweet_id'] + ['in_reply_to_status_id'] + ['in_reply_to_user_id'] + ['retweeted_status_id'] + ['retweeted_status_user_id'] + ['timestamp'] + ['source'] + ['text'] + ['expanded_url'])
 			for tweet in tweets:
-				tweetWriter.writerow([tweet[0]] + [tweet[1]] + [tweet[2]] + [tweet[3]] + [tweet[4]] + [getTimestamp(tweet)] + [getSource(tweet)] + [getTweet(tweet)] + [getUrl(tweet)]) 
+				tweetWriter.writerow([tweet[0]] + [tweet[1]] + [tweet[2]] + [tweet[3]] + [tweet[4]] + [tweet[5]] + [getSource(tweet)] + [getTweet(tweet)] + [getUrl(tweet)]) 
 
 if __name__ == '__main__':
 
@@ -555,17 +539,24 @@ if __name__ == '__main__':
 	iGroup = parser.add_mutually_exclusive_group()
 	eGroup = parser.add_mutually_exclusive_group()
 	iGroup.add_argument('-aany', type = str, nargs='+', metavar = 'pattern', 
-			    help = "Adds to selection each tweet containing any of the listed expressions.") 
+			    help = "Include tweets containing any of the listed expressions.") 
 	iGroup.add_argument('-aall', type = str, nargs='+', metavar = 'pattern', 
-			    help = "Adds to selection each tweet containing all of the listed expressions.") 
+			    help = "Include tweets containing all of the listed expressions.") 
 	eGroup.add_argument('-rany', type = str, nargs='+', metavar = 'pattern', 
-		            help = "Remove from selection each tweet containing any of the listed expressions.") 
+		            help = "Remove tweets containing any of the listed expressions.") 
 	eGroup.add_argument('-rall', type = str, nargs='+', metavar = 'pattern', 
-			    help = "Remove from selection each tweet containing all of the listed expressions.") 
+			    help = "Remove tweets containing all of the listed expressions.") 
+	parser.add_argument('-start', type = str, nargs='+', metavar = 'pattern', 
+			    help = "Include tweets from given date. [Format : ddmmyyyy]") 
+	parser.add_argument('-end', type = str, nargs='+', metavar = 'pattern', 
+			    help = "Include tweets until given date. [Format : ddmmyyyy]") 
 	parser.add_argument('-i', action = 'store_true', help = "Make command case insensitive.")
 	parser.add_argument('-t', type = int, metavar = 'size', default = 5, help = "Define tops size.")
 	args = parser.parse_args()
-	if args.aany != None or args.aall != None or args.rany != None or args.rall != None:
+
+	if args.aany != None or args.aall != None or args.rany != None or args.rall != None or args.start != None or args.end != None:
+		if args.start != None: tweets = dateSelect(tweets, args.start[0], "start")
+		if args.end != None: tweets = dateSelect(tweets, args.end[0], "end")
 		if args.aany != None and args.rany == None and args.rall == None : tweets = selectTweetsAny(tweets, args.aany, args.i)
 		if args.aany != None and args.rany != None: tweets = removeTweetsAny(selectTweetsAny(tweets, args.aany, args.i), args.rany, args.i)
 		if args.aany != None and args.rall != None: tweets = removeTweetsAll(selectTweetsAny(tweets, args.aany, args.i), args.rall, args.i)
@@ -575,5 +566,5 @@ if __name__ == '__main__':
 		if args.rany != None and args.aany == None and args.aall == None : tweets = removeTweetsAny(tweets, args.rany, args.i)
 		if args.rall != None and args.aany == None and args.aall == None : tweets = removeTweetsAll(tweets, args.rall, args.i)
 		if len(tweets) == 0: print "\n\t× sorry : couldn't find any match.\n"
-		else:writeTweets(tweets)
+		else: writeTweets(tweets)
 	else: displayStats(sortTweets(tweets), args.t)
