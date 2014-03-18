@@ -65,6 +65,8 @@ To make your query case insensitive, add <code>[-i]</code> option
 
 <code>python tweet_blender.py -start 20122012 -end 27122012 -aany "hip hop" party -rany "oh oh oh" -i</code>
 
+This outputs all your xmas 2012 tweets speaking about hip hop or parties, removing santa jokes.
+
 ## help:
 
 <pre><code>
