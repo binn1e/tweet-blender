@@ -15,7 +15,7 @@ As soon as you get it from twitter.com, just unzip your twitter archive on your 
 Runs the script to reports and print stats stdout.  
 
 <code>$ python tweet_blender.py -start 24062012</code>  
-Add date filtering to get data about a specific period of your life. 
+Add date filtering to get data covering a specific period of your life. 
 
 <code>$ python tweet_blender.py -end 31122009</code>  
 <code>$ python tweet_blender.py -end 31122009 -start 01062009</code>  
