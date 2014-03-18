@@ -34,19 +34,25 @@ FYI : data used in previous example is courtesy of my boyfriend, and yes, in cas
 
 All of the commands listed below will export selected tweets to the **sorted.csv** file.  
 
+<code>$ python tweet_blender.py -start ddmmyyyy</code>  
+Include tweets from given date (included.)
+
+<code>$ python tweet_blender.py -end ddmmyyyy</code>  
+Include tweets until given date (included.)
+
 <code>$ python tweet_blender.py -aany pattern [pattern ...]</code>  
-Adds to selection tweets containing pattern or pattern n. Patterns maybe a word, "an expression" or "a regexp?". 
+Include tweets containing pattern or pattern n. Patterns maybe a word, "an expression" or "a regexp?". 
 
 <code>$ python tweet_blender.py -aall pattern [pattern ...]</code>  
-Adds to selection tweets containing pattern and pattern n.  
+Include tweets containing pattern and pattern n.  
 
 <code>$ python tweet_blender.py -rany pattern [pattern ...]</code>  
-Remove from selection tweets containing pattern or pattern n.  
+Include tweets containing pattern or pattern n.  
 
 <code>$ python tweet_blender.py -rall pattern [pattern ...]</code>  
-Remove from selection tweets containing pattern and pattern n.  
+Include tweets containing pattern and pattern n.  
 
-Both <code>[-aany]</code> or <code>[-aall]</code> inculsion options can be combined with <code>[-rany]</code> or <code>[-rall]</code> exclusion options.  
+Both <code>[-aany]</code> or <code>[-aall]</code> inculsion options can be combined with <code>[-rany]</code> or <code>[-rall]</code> exclusion options. Date filtering can be combined with any options. 
 For example :  
 
 <code>$ python tweet_blender.py -aany pizza "video games" -rall programming coffee</code>  
@@ -57,29 +63,37 @@ Adds to selection tweets that contain '@binnie' and match 'cof+e+' and remove fr
 
 To make your query case insensitive, add <code>[-i]</code> option   
 
+<code>python tweet_blender.py -start 20122012 -end 27122012 -aany "hip hop" party -rany "oh oh oh" -i</code>
+
 ## help:
 
-<pre><code>$ python tweet_blender.py -h   
+<pre><code>
+python tweet_blender.py -h
 usage: tweet_blender [-h] [-aany pattern [pattern ...] | -aall pattern
                      [pattern ...]] [-rany pattern [pattern ...] | -rall
-                     pattern [pattern ...]] [-i] [-t size]
+                     pattern [pattern ...]] [-start pattern [pattern ...]]
+                     [-end pattern [pattern ...]] [-i] [-t size]
 
 Process some tweets.
 
 optional arguments:
   -h, --help            show this help message and exit
   -aany pattern [pattern ...]
-                        Adds to selection each tweet containing any of the
-                        listed expressions.
+                        Include tweets containing any of the listed
+                        expressions.
   -aall pattern [pattern ...]
-                        Adds to selection each tweet containing all of the
-                        listed expressions.
+                        Include tweets containing all of the listed
+                        expressions.
   -rany pattern [pattern ...]
-                        Remove from selection each tweet containing any of the
-                        listed expressions.
+                        Remove tweets containing any of the listed
+                        expressions.
   -rall pattern [pattern ...]
-                        Remove from selection each tweet containing all of the
-                        listed expressions.
+                        Remove tweets containing all of the listed
+                        expressions.
+  -start pattern [pattern ...]
+                        Include tweets from given date. [Format : ddmmyyyy]
+  -end pattern [pattern ...]
+                        Include tweets until given date. [Format : ddmmyyyy]
   -i                    Make command case insensitive.
   -t size               Define tops size.
 </code></pre>
