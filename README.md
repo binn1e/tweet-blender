@@ -38,7 +38,7 @@ FYI : data used in previous example is courtesy of my boyfriend, and yes, in cas
 
 ### sort and export feature :  
 
-All of the commands listed below will export selected tweets to the **sorted.csv** file.  
+All of the commands listed below desactivate stats feature, and turn script into an exporter that writes selected tweets to the **sorted.csv** file.  
 
 <code>$ python tweet_blender.py -start ddmmyyyy</code>  
 Include tweets from given date (included.)
