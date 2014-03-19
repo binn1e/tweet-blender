@@ -18,7 +18,7 @@ Runs the script to reports and print stats stdout.
 Add date filtering to get data covering a specific period of your life. 
 
 <code>$ python tweet_blender.py -end 31122009</code>  
-<code>$ python tweet_blender.py -end 31122009 -start 01062009</code>  
+<code>$ python tweet_blender.py -start 01062009 -end 31122009</code>  
 
 The stats feature displays many tops 5 which look like this (example below lists most common uncommon words tweeted) :  
 <pre>
@@ -34,7 +34,7 @@ If you want to resize tops, please use <code>-t</code> option like this :
 
 <code>$ python tweet_blender.py -t 42</code> - whenever possible, this displays your 42 most tweeted smileys, internet domains, etc...
 
-FYI : data used in previous example is courtesy of my boyfriend, and yes, in case you're wondering : I am very proud.  
+FYI : data used in previous example is courtesy of my boyfriend, and yes, in case you're wondering : I am very proud!  
 
 ### sort and export feature :  
 
