@@ -7,7 +7,7 @@ A Python script that :
 
 ##usage :
 
-As soon as you get it from twitter.com, just unzip your twitter archive on your hard drive and save the **common_words.txt_ file**, **common_domains.txt** file, and **tweet_blender.py** script at the root of the archive folder to run it.  
+As soon as you get it from twitter.com, just unzip your archive on your hard drive and place **common_words.txt_ file**, **common_domains.txt** file, and **tweet_blender.py** in the same folder.
 
 ### stats feature : 
 
@@ -20,7 +20,7 @@ Add date filtering to get data covering a specific period of your life.
 <code>$ python tweet_blender.py -end 31122009</code>  
 <code>$ python tweet_blender.py -start 01062009 -end 31122009</code>  
 
-The stats feature displays many tops 5 which look like this (example below lists most common uncommon words tweeted) :  
+The stats feature displays a bucnh of funny stats and a few of your « top things » which look like following (example below lists most common words tweeted) :  
 <pre>
 × stop repeating yourself :
 — 1.  fucking
@@ -30,7 +30,7 @@ The stats feature displays many tops 5 which look like this (example below lists
 — 5.  cool
 </pre>  
 
-If you want to resize tops, please use <code>-t</code> option like this :  
+If you want to resize tops to get more data, please use <code>-t</code> option like this :  
 
 <code>$ python tweet_blender.py -t 42</code> - whenever possible, this displays your 42 most tweeted smileys, internet domains, etc...
 
