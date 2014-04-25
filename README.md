@@ -20,7 +20,7 @@ Add date filtering to get data covering a specific period of your life.
 <code>$ python tweet_blender.py -end 31122009</code>  
 <code>$ python tweet_blender.py -start 01062009 -end 31122009</code>  
 
-The stats feature displays a bucnh of funny stats and a few of your « top things » which look like following (example below lists most common words tweeted) :  
+The stats feature displays a bucnh of funny stats and a few of your « top things » which look like following (example below lists most common tweeted words) :  
 <pre>
 × stop repeating yourself :
 — 1.  fucking
@@ -41,31 +41,31 @@ FYI : data used in previous example is courtesy of my boyfriend, and yes, in cas
 All of the commands listed below desactivate stats feature, and turn script into an exporter that writes selected tweets to the **sorted.csv** file.  
 
 <code>$ python tweet_blender.py -start ddmmyyyy</code>  
-Include tweets from given date (included.)
+Includes tweets from given date (included.)
 
 <code>$ python tweet_blender.py -end ddmmyyyy</code>  
-Include tweets until given date (included.)
+Includes tweets until given date (included.)
 
 <code>$ python tweet_blender.py -aany pattern [pattern ...]</code>  
-Include tweets containing pattern or pattern n. Patterns maybe a word, "an expression" or "a regexp?". 
+Includes tweets containing pattern or pattern n. Patterns maybe a word, "an expression" or "a regexp?". 
 
 <code>$ python tweet_blender.py -aall pattern [pattern ...]</code>  
-Include tweets containing pattern and pattern n.  
+Includes tweets containing pattern and pattern n.  
 
 <code>$ python tweet_blender.py -rany pattern [pattern ...]</code>  
-Include tweets containing pattern or pattern n.  
+Removes tweets containing pattern or pattern n.  
 
 <code>$ python tweet_blender.py -rall pattern [pattern ...]</code>  
-Include tweets containing pattern and pattern n.  
+Removes tweets containing pattern and pattern n.  
 
 Both <code>[-aany]</code> or <code>[-aall]</code> inculsion options can be combined with <code>[-rany]</code> or <code>[-rall]</code> exclusion options. Date filtering can be combined with any options. 
 For example :  
 
 <code>$ python tweet_blender.py -aany pizza "video games" -rall programming coffee</code>  
-Adds to selection tweets that contain 'pizza' or 'video games' and remove from selection tweets that contain both 'programming' and 'coffee'.  
+Adds to selection tweets that contain 'pizza' or 'video games' and removes from selection tweets that contain both 'programming' and 'coffee'.  
 
 <code>$ python tweet_blender.py -aall @binnie 'cof+e+' -rany pizza donut cookie</code>  
-Adds to selection tweets that contain '@binnie' and match 'cof+e+' and remove from selection tweets that contain 'pizza' or 'donut' or 'cookie'.  
+Adds to selection tweets that contain '@binnie' and match 'cof+e+' and removes from selection tweets that contain 'pizza' or 'donut' or 'cookie'.  
 
 To make your query case insensitive, add <code>[-i]</code> option   
 
