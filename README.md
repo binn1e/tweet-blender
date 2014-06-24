@@ -5,11 +5,11 @@ A Python script that :
 1. Reports basics and funny stats about your Twitter usage over a specifiable period
 2. Allows you to sort and export your tweets using date filtering and advanced content filtering 
 
-##usage :
+##usage
 
 As soon as you get it from twitter.com, just unzip your archive on your hard drive and place **common_words.txt_ file**, **common_domains.txt** file, and **tweet_blender.py** in the same folder.
 
-### stats feature : 
+### stats feature
 
 <code>$ python tweet_blender.py</code>  
 Runs the script to reports and print stats stdout.  
@@ -36,7 +36,7 @@ If you want to resize tops to get more data, please use <code>-t</code> option l
 
 FYI : data used in previous example is courtesy of my boyfriend, and yes, in case you're wondering : I am very proud!  
 
-### sort and export feature :  
+### sort and export feature
 
 All of the commands listed below desactivate stats feature, and turn script into an exporter that writes selected tweets to the **sorted.csv** file.  
 
@@ -73,7 +73,7 @@ To make your query case insensitive, add <code>[-i]</code> option
 
 This outputs all your xmas 2012 tweets speaking about hip hop or parties, removing santa jokes.
 
-## help:
+## help
 
 <pre><code>
 python tweet_blender.py -h
@@ -105,7 +105,7 @@ optional arguments:
   -i                    Make command case insensitive.
   -t size               Define tops size.
 </code></pre>
-## notes:
+## notes
 
 - Please feel free to edit the **common_words.txt** file or **common_domains.txt** file as you wish in order to obtain more accurate personal and funny results.  
 - **common_words.txt** contains around 1000 french words so you may want to delete them if you tweet only in english, so the script can run quicker.  
