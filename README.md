@@ -3,7 +3,7 @@
 A Python script that : 
 
 1. Reports basics and funny stats about your Twitter usage over a specifiable period
-2. Allows you to sort and export your tweets using date filtering and advanced content filtering 
+2. Allows you to sort and export your tweets using advanced content and date filtering 
 
 ##usage
 
@@ -38,7 +38,7 @@ FYI : data used in previous example is courtesy of my boyfriend, and yes, in cas
 
 ### sort and export feature
 
-All of the commands listed below desactivate stats feature, and turn script into an exporter that writes selected tweets to the **sorted.csv** file.  
+All commands listed below desactivate stats feature, then turn script into an exporter which stores selected tweets to the **sorted.csv** file.  
 
 <code>$ python tweet_blender.py -start ddmmyyyy</code>  
 Includes tweets from given date (included.)
