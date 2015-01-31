@@ -2,7 +2,7 @@
 
 A Python script that : 
 
-1. Reports basics and funny stats about your Twitter usage over a specifiable period
+1. Reports quirky stats about your Twitter usage over a specifiable period
 2. Allows you to sort and export your tweets using advanced content and date filtering 
 
 ##usage
