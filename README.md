@@ -34,7 +34,6 @@ Data used in above example is courtesy of my boyfriend, and yes, in case you're 
 
 Here's a bunch of other things you can get:
 
-— Most used clients:
 <pre>
 × software spots:
 — 1.  Tweetbot for iOS
@@ -44,7 +43,6 @@ Here's a bunch of other things you can get:
 — 5.  Instagram
 </pre>  
 
-— People who make you laugh:
 <pre>
 × devoted entertainers:
 — 1.  @c0unt0
@@ -54,7 +52,6 @@ Here's a bunch of other things you can get:
 — 5.  @Pipomantis
 </pre>  
 
-— Some smiley sorting:
 <pre>
 × this is, literally, your twitter face:
 — 1.  :)
@@ -64,7 +61,6 @@ Here's a bunch of other things you can get:
 — 5.  ;)
 </pre>  
 
-— Where your links usually come from:
 <pre>
 × top domains:
 — 1.  wikipedia.org
