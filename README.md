@@ -1,9 +1,9 @@
 #tweet-blender
 
-A Python script that : 
+A Python quick commande line tool including two features : 
 
-1. Reports quirky stats about your Twitter usage over a specifiable period
-2. Allows you to sort and export your tweets using advanced content and date filtering 
+1. Quirky Twitter usage stats reporting over a specifiable period
+2. Tweets sorting and exporting using advanced content and date filtering 
 
 ##usage
 
