@@ -68,10 +68,10 @@ Here's a bunch of other things you can get:
 <pre>
 × top domains:
 — 1.  wikipedia.org
-— 2.  mashable.com
-— 3.  wired.com
+— 2.  wired.com
+— 3.  reddit.com
 — 4.  vice.com
-— 5.  slate.fr
+— 5.  slashdot.org
 </pre>  
 
 These are just a few, there are many more!
