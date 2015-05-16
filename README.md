@@ -20,7 +20,7 @@ Add date filtering to get data covering a specific period of your life.
 <code>$ python tweet_blender.py -end 31122009</code>  
 <code>$ python tweet_blender.py -start 01062009 -end 31122009</code>  
 
-The stats feature displays a bucnh of funny stats and a few of your « top things » which look like following (example below lists most common tweeted words) :  
+The stats feature displays a bucnh of funny stats and a few of your « top things » — example below for example lists your most common tweeted words:  
 <pre>
 × stop repeating yourself :
 — 1.  fucking
@@ -30,11 +30,55 @@ The stats feature displays a bucnh of funny stats and a few of your « top thing
 — 5.  cool
 </pre>  
 
+Data used in above example is courtesy of my boyfriend, and yes, in case you're wondering : I am very proud!  
+
+Here's a bunch of other things you can get:
+
+— Most used clients:
+<pre>  
+× software spots:
+— 1.  Tweetbot for iOS
+— 2.  HootSuite
+— 3.  Echofon
+— 4.  Twitter for iPhone
+— 5.  Instagram
+</pre>  
+
+— People who make you laugh:
+<pre>  
+× devoted entertainers:
+— 1.  @c0unt0
+— 2.  @Faskil
+— 3.  @Cafeine
+— 4.  @smwhr
+— 5.  @Pipomantis
+</pre>  
+
+— Some smiley sorting:
+<pre>  
+× this is, literally, your twitter face:
+— 1.  :)
+— 2.  :/
+— 3.  :D
+— 4.  :x
+— 5.  ;)
+</pre>  
+
+— Where your links usually come from:
+<pre>  
+× top domains:
+— 1.  wikipedia.org
+— 2.  mashable.com
+— 3.  wired.com
+— 4.  vice.com
+— 5.  slate.fr
+</pre>  
+
+These are just a few, there are many more!
+
 If you want to resize tops to get more data, please use <code>-t</code> option like this :  
 
 <code>$ python tweet_blender.py -t 42</code> - whenever possible, this displays your 42 most tweeted smileys, internet domains, etc...
-
-FYI : data used in previous example is courtesy of my boyfriend, and yes, in case you're wondering : I am very proud!  
 
 ### sort and export feature
 
