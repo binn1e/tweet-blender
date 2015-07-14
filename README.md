@@ -98,7 +98,7 @@ Removes tweets containing pattern or pattern n.
 <code>$ python tweet_blender.py -rall pattern [pattern ...]</code>  
 Removes tweets containing pattern and pattern n.  
 
-Both <code>[-aany]</code> or <code>[-aall]</code> inculsion options can be combined with <code>[-rany]</code> or <code>[-rall]</code> exclusion options. Date filtering can be combined with any options. 
+Both <code>[-aany]</code> or <code>[-aall]</code> inclusion options can be combined with <code>[-rany]</code> or <code>[-rall]</code> exclusion options. Date filtering can be combined with any options. 
 For example :  
 
 <code>$ python tweet_blender.py -aany pizza "video games" -rall programming coffee</code>  
