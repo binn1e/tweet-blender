@@ -7,7 +7,7 @@
 ~ 	Allows you to sort and export tweets using advanced content filtering.
 ~ 	Run this script against your Twitter archive. 
 ~ 	Sorry for the nasty comments.
-~	Created by Sabrina Matrullo on 2013-06-15
+~	Created by Sabrina Hadjadj on 2013-06-15
 ~	Last update: 2014-03-19
 ~	
 """
