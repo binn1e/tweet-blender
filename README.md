@@ -30,7 +30,7 @@ The stats feature displays a bucnh of funny stats and a few of your « top thing
 — 5.  cool
 </pre>  
 
-Data used in above example is courtesy of my boyfriend, and yes, in case you're wondering : I am very proud!  
+Data used in above example is courtesy of my husband, and yes, in case you're wondering : I am very proud!  
 
 Here's a bunch of other things you can get:
 
@@ -46,10 +46,10 @@ Here's a bunch of other things you can get:
 <pre>
 × devoted entertainers:
 — 1.  @c0unt0
-— 2.  @Faskil
-— 3.  @Cafeine
+— 2.  @singletau
+— 3.  @korben
 — 4.  @smwhr
-— 5.  @Pipomantis
+— 5.  @@lesarchivistes
 </pre>  
 
 <pre>
